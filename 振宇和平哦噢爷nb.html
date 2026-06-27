@@ -1,0 +1,474 @@
+<html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://lib.baomitu.com/vant/2.12.48/index.css" />
+<title>xiaoye</title>
+</title>
+<script src="https://lib.baomitu.com/vue/2.6.0/vue.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://lib.baomitu.com/vant/2.12.48/vant.js"></script>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .van-scrollbar .van-scrollbar__bar {
+    opacity: 1 !important;
+  }
+
+  *:not(input, checkbox, textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .aymenu {
+    position: fixed;
+    width: 360px;
+    height: 320px;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+    z-index: 999;
+    background-color: #F0F0F0;
+    border-radius: 8px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .fun-block__title {
+    margin: 0;
+    padding: 32px 16px 16px;
+    color: rgba(69, 90, 100, 0.6);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .van-cell {
+    line-height: unset;
+  }
+
+  .menuBody {
+    height: 260px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .menuBody::-webkit-scrollbar {
+    display: none;
+  }
+
+  .content {
+    padding: 16px 16px 160px;
+  }
+
+  .custom-button {
+    width: 26px;
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    background-color: #ffa4cf;
+    border-radius: 100px;
+  }
+</style>
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="aymenu" ref="menuMain">
+      <div @touchstart="titleTouchStart" @touchmove="titleTouchMove">
+        <van-nav-bar title="菜单">
+          <template #left>
+            <van-icon name="friends-o" size="20" onclick="fankui()" />
+          </template>
+          <template #right>
+            <van-icon name="more-o" size="20" onclick="fankui1()" />
+          </template>
+        </van-nav-bar>
+        <van-notice-bar scrollable left-icon="volume-o" color="#ffa4cf" background="#ecf9ff"
+          text="振宇独家思路牛逼👻" />
+      </div>
+      <van-tabs type="card" color="#ffa4cf" animated>
+        <van-tab title="基础功能">
+          <div class="menuBody" ref="menuBody">
+            <h2 class="fun-block__title" style="padding-top: 20px;">功能</h2>
+            <van-cell-group inset>
+              <van-cell title="防闪">
+                <template #default>
+                  <van-switch v-model="value10" size="15px" active-color="#ffa4cf" inactive-color="#dcdee0"
+                    onclick="防闪加载()" />
+                </template>
+              </van-cell>
+              <van-cell title="防封保护">
+                <template #default>
+                  <van-switch v-model="value8" size="15px" active-color="#ffa4cf" inactive-color="#dcdee0"
+                    onclick="防封加载()" />
+                </template>
+              </van-cell>
+              <van-cell title="大厅开启">
+                <template #default>
+                  <van-switch v-model="value13" size="15px" active-color="#ffa4cf" inactive-color="#dcdee0"
+                    onclick="大厅开启加载()" />
+                </template>
+              </van-cell>
+              <van-cell title="玛莎拉蒂金">
+                <template #default>
+                  <van-switch v-model="value11" size="15px" active-color="#ffa4cf" inactive-color="#dcdee0"
+                    onclick="玛莎拉蒂金加载()" />
+                </template>
+              </van-cell>
+              <van-cell title="兰博吉普">
+                <template #default>
+                  <van-switch v-model="value14" size="15px" active-color="#ffa4cf" inactive-color="#dcdee0"
+                    onclick="兰博吉普加载()" />
+                </template>
+              </van-cell>
+              <van-cell title="黄金风衣">
+                <template #default>
+                  <van-switch v-model="value12" size="15px" active-color="#ffa4cf" inactive-color="#dcdee0"
+                    onclick="黄金风衣加载()" />
+                </template>
+              </van-cell>
+            </van-cell-group>
+            </van-collapse-item>
+            </van-collapse>
+            </van-cell-group>
+          </div>
+        </van-tab>
+        <van-tab title="￼音乐专区">
+          <div class="menuBody" ref="menuBody">
+
+            <h2 class="fun-block__title" style="padding-top: 20px;">歌单</h2>
+            <van-cell-group inset>
+              <p><em>无情画</em></p><audio id="audio" src="http://music.163.com/song/media/outer/url?id=2056811636.mp3"
+                controls></audio><br>
+              
+              <p><em>心做</em></p><audio id="audio" src="http://music.163.com/song/media/outer/url?id=2005190306.mp3"
+                controls></audio><br>
+
+              <p><em>遗失的心跳dj</em></p><audio id="audio" src="http://music.163.com/song/media/outer/url?id=1931647542.mp3"
+                controls></audio><br>
+
+
+              </van-collapse-item>
+              </van-collapse>
+
+            </van-cell-group>
+
+          </div>
+        </van-tab>
+        <van-tab title="公告">
+          <div class="menuBody" ref="menuBody">
+            <h2 class="fun-block__title" style="padding-top: 20px;">没啥好瞅的</h2>
+            <h2 class="fun-block__title" style="padding-top: 20px;"> 防封登录开启￼</h2>
+            <h2 class="fun-block__title" style="padding-top: 20px;">作者制作不易👻</h2>
+
+            <van-cell-group inset>
+
+
+              </van-field>
+              </van-collapse-item>
+              </van-collapse>
+
+            </van-cell-group>
+
+          </div>
+        </van-tab>
+      </van-tabs>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  var app = new Vue({
+    'el': '#app',
+
+    'data'() {
+      return {
+        'value8': false,
+        'value10': false,
+        'value11': false,
+        'value12': false,
+        'value13': false,
+        'value14': false,
+        'mapsize': 2,
+        'mapjtg3': 1,
+        'mapX': 195,
+        'mapY': 0,
+        'mapjtg': 2,
+        'dis': 500,
+        'mapjtg1': 1,
+        'shexianY': 43,
+        'shexiansize': 27,
+        'jishuY': 55,
+        'jishusize': 20,
+        'sjsulv': 800,
+        'gugefanwei': 50,
+        'zhenlv': 2000,
+        'activeName1': false,
+        'activeName2': false,
+        'activeName3': false,
+        'activeName4': false,
+        'checkedDarw': {
+          'isBeiDi': true,
+          'isLeida': true,
+          'isLine': true,
+          'iszm': false,
+          'isBox': true,
+          'isDis': true,
+          'isInfo': true,
+          'isHp': true,
+          'isBone': true,
+          'isShouchi': true,
+          'isSanbing': true,
+          'isJinggao': true,
+          'iscar': false,
+          'injured': true,
+          'hezi': false,
+          'iscarName': false,
+          'iscarYouliang': false,
+          'iscarNaijiu': false
+        }
+      };
+    },
+
+    'mounted'() {
+      this.setRect(340, 390);
+      var c = window.screen.width;
+      var d = window.screen.height;
+
+      if (window.screen.availWidth > window.screen.availHeight) {
+        c = window.screen.height;
+        d = window.screen.width;
+      }
+
+      setWindowRect(0, 0, c, d);
+      setButtonImage("https://s1.ax1x.com/2023/05/10/p9rFREQ.jpg");
+      setButtonAction(function () {
+        var e = document.querySelector('#app');
+
+        if (e.style.display == 'none') {
+          e.style.display = 'block';
+          setWindowTouch(true);
+        } else {
+          e.style.display = 'none';
+          setWindowTouch(false);
+        }
+      });
+    },
+
+    'methods': {
+      'setRect'(f, g, h = -1, i = -1) {
+        var j = f;
+        var k = g;
+        var l = this.$refs.menuMain;
+        l.style.width = j + 'px';
+        l.style.height = k + 'px';
+
+        if (h == -1) {
+          l.style.left = 'calc(50% - ' + j / 2 + 'px)';
+        }
+
+        if (i == -1) {
+          l.style.top = 'calc(50% - ' + k / 2 + 'px)';
+        }
+      },
+
+      'titleTouchStart'(m) {
+        this.touchStartX = parseInt(m.touches[0].clientX);
+        this.touchStartY = parseInt(m.touches[0].clientY);
+        var n = this.$refs.menuMain;
+        this.menuLastX = n.offsetLeft;
+        this.menuLastY = n.offsetTop;
+      },
+
+      'titleTouchMove'(o) {
+        o.preventDefault();
+        var p = o.touches[0].clientX - this.touchStartX;
+        var q = o.touches[0].clientY - this.touchStartY;
+        var r = this.$refs.menuMain;
+        r.style.left = this.menuLastX + p + 'px';
+        r.style.top = this.menuLastY + q + 'px';
+      },
+
+      'closeimgui'() {
+        var s = document.querySelector('#app');
+        s.style.display = 'none';
+        setWindowTouch(false);
+      }
+
+    }
+  });
+
+  function draw1(t) {
+    if (window.draw_state == 1) {
+      window.draw_state = 0;
+      clearCtx();
+    } else {
+      window.draw_state = 1;
+    }
+  }
+
+  function hack1() {
+    if (window.zhibo1 == 1) {
+      window.zhibo1 = 0;
+      var u = h5gg.loadPlugin('ayHide', 'h5gg_hideview.dylib');
+      setButtonImage('https://s1.ax1x.com/2023/05/10/p9rFREQ.jpg');
+      u.changeHidden(0);
+      var v = setWindowTouch;
+
+      setWindowTouch = function (w) {
+        var x = w ? 1 : 0;
+        u.changeTouch(x);
+        v(w);
+      };
+    } else {
+      window.zhibo1 = 1;
+      var u = h5gg.loadPlugin('ayHide', 'h5gg_hideview.dylib');
+      setButtonImage('https://s1.ax1x.com/2023/05/10/p9rFREQ.jpg');
+      u.changeHidden(1);
+      var v = setWindowTouch;
+
+      setWindowTouch = function (A) {
+        var B = A ? 1 : 0;
+        u.changeTouch(B);
+        v(A);
+      };
+    }
+  }
+
+  function Bool_检查(地址) {
+    return 地址 <= 0x100000000 || 地址 >= 0x300000000;
+  }
+
+  function I64_读取(地址) {
+    return Number(h5gg.getValue(地址, "I64"));
+  }
+
+  function I32_写入(地址, 值) {
+    h5gg.setValue(地址, 值, "I32");
+  }
+
+  var 模块基址 = null;
+  var 指针地址 = null;
+
+  function 防闪加载() {
+    var ranges = h5gg.getRangesList("tersafe");
+    if (!ranges || ranges.length === 0) {
+      alert("未找到 tersafe 模块");
+      return;
+    }
+    模块基址 = Number(ranges[0].start);
+    var 目标地址 = 模块基址 + 0x8DE10;
+    I32_写入(目标地址, -721215457);
+    alert("防闪 开启成功");
+  }
+
+  function 防封加载() {
+    var ranges = h5gg.getRangesList("tersafe");
+    if (!ranges || ranges.length === 0) {
+      alert("未找到 tersafe 模块");
+      return;
+    }
+    模块基址 = Number(ranges[0].start);
+    
+    指针地址 = I64_读取(模块基址 + 0x2B8358);
+    if (Bool_检查(指针地址)) {
+      alert("防封：第一级指针无效");
+      return;
+    }
+    
+    I32_写入(指针地址 + 0x8, 65538);
+    I32_写入(指针地址 + 0xC, 65536);
+    
+    alert("防封保护 开启成功");
+  }
+
+  function 大厅开启加载() {
+    var ranges = h5gg.getRangesList("tersafe");
+    if (!ranges || ranges.length === 0) {
+      alert("未找到 tersafe 模块");
+      return;
+    }
+    模块基址 = Number(ranges[0].start);
+    var 目标地址 = 模块基址 + 0x2B835C;
+    I32_写入(目标地址, 2);
+    alert("大厅开启 成功");
+  }
+
+  function 玛莎拉蒂金加载() {
+    h5gg.clearResults();
+    h5gg.searchNumber(330600100, "I32", "0x000000000", "0xFFFFFFFFFF");
+    var results = h5gg.getResults(100);
+    if (!results || results.length === 0) {
+      alert("未找到玛莎拉蒂金数值");
+      return;
+    }
+    for (var i = 0; i < results.length; i++) {
+      h5gg.setValue(results[i].address, 330600600, "I32");
+    }
+    alert("玛莎拉蒂金 开启成功，修改" + results.length + "处");
+  }
+
+  function 兰博吉普加载() {
+    h5gg.clearResults();
+    h5gg.searchNumber(330400100, "I32", "0x000000000", "0xFFFFFFFFFF");
+    var results = h5gg.getResults(200);
+    if (!results || results.length === 0) {
+      alert("未找到兰博吉普数值");
+      return;
+    }
+    for (var i = 0; i < results.length; i++) {
+      h5gg.setValue(results[i].address, 330401300, "I32");
+    }
+    alert("兰博吉普 开启成功，修改" + results.length + "处");
+  }
+
+  function 黄金风衣加载() {
+    h5gg.clearResults();
+    h5gg.searchNumber(403251, "I32", "0x100000000", "0x200000000");
+    var results = h5gg.getResults(100);
+    if (!results || results.length === 0) {
+      alert("未找到黄金风衣数值");
+      return;
+    }
+    for (var i = 0; i < results.length; i++) {
+      h5gg.setValue(results[i].address, 403188, "I32");
+    }
+    alert("黄金风衣 开启成功，修改" + results.length + "处");
+  }
+
+  function fankui() {
+    vant.Toast('期待下次使用');
+  }
+
+  function fankui1() {
+    vant.Toast('点击悬浮图标关闭菜单哦！');
+  }
+
+  function pid() {
+    if (!h5gg.getProcList('ShadowTrackerExt')[0]) {
+      alert("请打开和平精英");
+      pid();
+    } else {
+      var J = h5gg.getProcList('ShadowTrackerExt')[0].pid;
+      h5gg.setTargetProc(J);
+      h5gg.clearResults();
+    }
+  }
+
+
+
+</script>
+
+</html>
